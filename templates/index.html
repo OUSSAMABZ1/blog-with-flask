@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/7b7f1f5f8b.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+    <link rel = "icon" href ="../static/images/logo/logo3.svg">
+</head>
+<body>
+
+    <div id="loadingpage">
+        <div id="loader-logo">
+            <img src="../static/images/logo/logo2.svg" alt="">
+        </div>
+        <div id="loader-footer">
+            <div id="loader-animation">
+
+            </div>
+            <h3>Wait A Bit.</h3>
+        </div>
+    </div>
+
+    <div class="notification">
+        <div class='message'>
+            <h4>
+               Thanks For Contacting Me!  <span class="close-not">close</span>
+            </h4>
+        </div>
+        <div class="icon">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+    <div id="header">
+        <div id="logo">
+            <img src="../static/images/logo/logo2.svg" alt="">
+        </div>
+        <div>
+        <div class="wrapper">
+            <div id="portrait">
+                
+            </div>
+            <div id="about">
+                <h2>Pumpkin</h2>
+                </br>
+                <p>Welcome to my digital garden where I share
+                    what I am learning about web developement,
+                    machine learning and art.</p>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="icon-container selected">
+                <i class="fa-solid fa-star-of-life"></i>
+                <p>All</p>
+            </div>
+            <div class="icon-container" >
+                <i class="fa-solid fa-code"></i>
+                <p>Web Dev</p>
+            </div>
+            <div class="icon-container">
+                <i class="fa-solid fa-brain"></i>
+                <p>ML</p>
+            </div>
+            <div class="icon-container art-toggler">
+                <i class="fa-solid fa-palette"></i>
+                <p>Art</p>
+            </div>
+            <div class="icon-container">
+                <i class="fa-solid fa-heart"></i>
+                <p>Liked</p>
+            </div>
+            <a href="../static/resume.pdf" download="BOUZALIM_Oussama_Resume">
+            <div  id="cv">
+                <i class="fa-solid fa-file-arrow-down"></i>
+                <p>Resume</p>
+            </div>
+            </a>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="body">
+        {% for article in articles %}
+        {% set class = article.category +" wrapper" %}
+        {% set icon = "fa-solid fa-" + article.category %}
+        {% if article.id in LIKED_ARTICLES %}
+        {% set class = article.category +" wrapper liked" %}
+        {% endif %}
+        {% if article.category != "palette" %}
+        <div class="{{class}}" id={{article.id}}>
+            <a><h3> {{article.title}} </h3></a>
+            <h4>{{article.date.strftime('%B %d %Y')}} . {{article.numberviews}} views . {{article.numberlikes}} likes</h4>
+            </br>
+            <p> {{article.description}}
+            </p>
+            <div class="body-icon">
+                <i class="{{icon}}"></i>
+                <i class="fa-solid fa-heart "></i>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+        </div>
+
+        {%endif%}
+        {% endfor %}
+    </div>
+
+    
+    <div class="art" >
+        <div id="art-container">
+        {% for article in articles %}
+            {% if article.category == 'palette' %} 
+            <div class="piece" id={{article.id}}>
+                <img src="../static/images/art/{{article.content}}" alt="">
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+
+
+
+    {% for article in articles %}
+        {% if article.category == 'palette' %}      
+            <div class="big" id={{article.id}}>
+                <div class="pic-container">
+                    <img src="../static/images/art/{{article.content}}" alt="">
+                    <p>
+                        {{article.description}}
+                    </p>
+                </div>
+                <div class="close-pic">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>    
+        {% endif %}
+    {% endfor %}
+
+
+    <div id="footer">
+        <div class="container">
+            <div id="made">
+                <p>Made With React.js</p>
+                <i class="fa-solid fa-copyright"></i>
+            </div>
+            <div class="wrapper">
+                <div class="icon">
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="icon">
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="form" method="POST">
+        <div id="close"></div>
+        <h3>Contact Me</h3>
+        <form method="post">
+            <input type="email" placeholder="Email" name="email" id="email"/>
+            <br>
+            <textarea name="message" placeholder="Message" id="message" cols="30" rows="5" ></textarea>
+            <br>
+            <input type="submit" id="send" value="Send"></button>
+        </form>
+    </div>
+    <div id="layer"></div>
+
+    <script src="../static/index.js"></script>
+</body>
+</html>

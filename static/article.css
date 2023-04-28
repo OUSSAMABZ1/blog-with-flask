@@ -1,0 +1,342 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: sans-serif;
+    
+}
+body{
+    z-index: 1;
+    background-image: url(./images/home-images/blog-bg.png);
+    background-size: 100vw 100vh;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+/*---------------------------------------------------------*/
+
+#body{
+    display: flex;
+    justify-content: center;
+}
+
+#language {
+    width: 60px;
+}
+#language-icon-container{
+    position: absolute;
+    left: 0;
+    top:0;
+    margin:5px 5px 0px 5px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#language-icon-container i {
+    color: #00e4fc;
+    font-size: 20px;
+}
+.language-drop{
+    margin: 0 5px;
+    display: none;
+}
+.language-drop ul li{
+    background-color: rgba(0, 0, 0, .8);
+    width:  55px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    color: #00e4fc;
+    font-size: 12px;
+}
+.show{
+    display:flex;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+#article-content{
+    margin:50px 80px ;
+}
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#article-content h1{
+    text-align: center;
+    font-size: 70px;
+    text-transform: capitalize;
+}
+#article-content h3{
+    text-align: center;
+    font-weight: 300;
+    margin-top: 0px;
+    color: gray;
+    margin-bottom: 100px;
+    position: relative;
+    width: 150px;
+}
+#article-content h3::after{
+    content: "";
+    width: 100px;
+    height: 3px;
+    border-radius: 10px;
+    background-color: #00e4fc;
+    position: absolute;
+    bottom: -5px;
+    left:15%;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+#article-content img{
+    max-width: 80%;
+}
+#numberviews{
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin:20px 30px;
+    color: #00e4fc;
+}
+#numberviews i{
+    color: #00e4fc;
+}
+#numberviews h5 {
+    color: #00e4fc;
+}
+#numberlikes{
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin:20px 80px;
+}
+#numberlikes i{
+    color: #00e4fc;
+}
+#numberlikes h5{
+    color: #00e4fc;
+}
+#article-content h2{
+    margin: 30px 0 20px 0;
+    position: relative;
+    width: auto;
+    text-decoration: underline;
+    color: #00e4fc;
+}
+
+#article-content p{
+    text-align: justify;
+    line-height: 1.5rem;
+    text-indent: 30px;
+    font-size: 18px;
+}
+
+.code-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.code-container{
+    width: 700px;
+    background-color: black;
+    position: relative;
+    border-radius: 10px;
+    margin-top:50px;
+    text-transform: none;
+}
+@media only screen and (max-width: 600px){
+    #article-content h1{
+        font-size: 40px;
+    }
+}
+
+/*------------------------------------------------------*/
+#navbar {
+    position: fixed;
+    top: 30%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, .8);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+#navbar-container{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+}
+.navbar-item{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    cursor: pointer;
+    background-color: #00e4fc;
+    border-radius: 20px;
+}
+.item-icon{
+    width: 30px;
+    height: 30px;
+    margin:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-icon i {
+    font-size: 30px;
+    color: black;
+}
+
+.navbar-item:hover{
+    background-color: #00e4fc;
+    border-radius: 20px;
+}
+.navbar-item:hover .item-icon i{
+    transform: scale(1.2);
+}
+
+
+/*----------------------------------------------------------------*/
+#footer{
+    height: 75px;
+    margin-top: 50px;
+    width: 100%;
+}
+.footer-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px;
+}
+#made{
+    display: flex;
+    gap: 2px;
+}
+#made p{
+    font-size: 24px;
+    color: #00e4fc;
+}
+#made i{
+    color: #00e4fc;
+}
+.wrapper{
+    display: flex;
+    gap: 10px;
+}
+.icon i{
+    font-size: 30px;
+    color: #00e4fc;
+}
+
+/*--------------------------------------------------------*/
+#form{
+    z-index: 5;
+    height: 350px;
+    width: 500px;
+    background-color:black;
+    color: white;
+    position:fixed;
+    top:35%;
+    left: 30%;
+    display:none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#form #close{
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    background-color:#00e4fc;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+#form #close::before{
+    content: ' ';
+    width: 25px;
+    height: 3px;
+    margin: 7px 0;
+    background-color:#00e4fc;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    transform: rotate(45deg) translateY(4px) translateX(1px);
+}
+#form #close::after{
+    content: ' ';
+    width: 25px;
+    height: 3px;
+    background-color:#00e4fc;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    transform: rotate(-45deg) translateY(6px) translateX(-9px);
+}
+
+#form h3{
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: #00e4fc;
+}
+#form input{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: grey;
+    padding:3px;
+    width: 300px;
+}
+#form textarea{
+    margin-bottom: 15px;
+    border-radius: 7px;
+    color: black;
+    padding: 3px;
+    width: 300px;
+    position: relative;
+}
+#form #send{
+    background-color:#00e4fc;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    position: absolute;
+    right: 98px ;
+    cursor: pointer;
+    color:black;
+
+
+}
+@media only screen and (max-width: 1050px){
+    #form{
+        max-width: 70vw;
+        left:20%;
+    }
+}
+
+#layer{
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+}

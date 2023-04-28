@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/7b7f1f5f8b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/article.css">
+    <link rel="stylesheet" href="../static/prism.css">
+    <title>{{article.title}}</title>
+    <link rel = "icon" href ="../static/images/logo/logo3.svg">
+</head>
+<body>
+    <div id="body">
+        <div id="language">
+            <div id="language-icon-container">
+                <i class="fa-sharp fa-solid fa-globe"></i>
+            </div>
+        </div>
+        <div id="article-content">
+            <div id="header">
+                <h1> {{article.title}}</h1>
+                <h3>{{article.date.strftime('%B %d %Y')}}</h3>
+            </div>
+
+            <div id="numberviews">
+                <i class="fa-solid fa-eye"></i>
+                <h5>{{article.numberviews}}</h5>
+            </div>
+            <div id="numberlikes">
+                <i class="fa-solid fa-heart"></i>
+                <h5>{{article.numberlikes}}</h5>
+            </div>
+            {{article.content | safe}}
+        </div>
+    </div>
+
+    <div id="navbar">
+        <div id="navbar-container">
+            <a href="{{url_for('index')}}">            
+                <div class="navbar-item">
+                <div class="item-icon" >
+                    <img src="../static/images/logo/logo3.svg" alt="logo">
+                </div>
+            </div>
+            </a>
+            <a href="{{url_for('index')}}">
+            <div class="navbar-item">
+                <div class="item-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+            </div>                
+            </a>
+            <div class="navbar-item">
+                <div class="item-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+            </div>
+            <a href="../static/resume.pdf" download="BOUZALIM_Oussama_Resume">
+                <div class="navbar-item">
+                    <div class="item-icon">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                    </div>
+
+                </div>                
+            </a>
+
+        </div>
+    </div>
+    
+
+    <div id="form" method="POST">
+        <div id="close"></div>
+        <h3>Contact Me</h3>
+        <form method="post">
+            <input type="email" placeholder="Email" name="email" id="email"/>
+            <br>
+            <textarea name="message" placeholder="Message" id="message" cols="30" rows="5" ></textarea>
+            <br>
+            <input type="submit" id="send" value="Send"></button>
+        </form>
+    </div>
+    <div id="layer"></div>
+
+    <script src="../static/article.js"></script>
+    <script src="../static/prism.js"></script>
+</body>
+</html>

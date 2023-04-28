@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/7b7f1f5f8b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/addpost.css">
+    <title>Add Post</title>
+</head>
+<body>
+    <div id="form">
+        <form method="POST">
+            <label for="title">Title:</label>
+        </br>
+            <input type="text" id="title" name="title" placeholder="Title"/>
+        </br>
+            <label for="category">Category:(code, palette, brain, square-root-varable)</label>
+        </br>
+            <input type="text" id="category" name="category" placeholder="Category"/>
+        </br>
+            <label for="description">Description:</label>
+        </br>
+            <input type="text" id="description" name="description" placeholder="Description"/>
+        </br>
+            <label for="content">Content:</label>
+        </br>
+            <textarea rows="32" cols="60" type="text" id="content" name="content" placeholder="Content"></textarea>
+        </br>
+            <input type="submit" placeholder="Add To Database"/>
+        </form>        
+    </div>
+    <div id="data-display">
+        <div id="articles">
+            <h1>Articles</h1>
+            {%for article in articles%}
+                <div class="article">
+                    <h5>{{article.id}}</h5>
+                    <h5>{{article.date.strftime('%B %d %Y')}}</h5>
+                    <p>{{article.title}}</p>
+                    <button class="article-btn" id={{article.id}}>Delete</button>
+                </div>            
+            {%endfor%}
+
+
+        </div>
+        <div id="messages">
+            <h1>Messages</h1>
+            {%for message in messages%}
+            {% if message.email != None and message.message != None %}
+                <div class="message">
+                    <h5>{{message.email}}</h5>
+                    <p>{{message.message}}</p>
+                    <button class="message-btn" id={{message.id}}>Delete</button>
+                </div>   
+            {%endif%}         
+            {%endfor%}
+
+        </div>
+    </div>
+
+    <script src="../static/addpost.js"></script>
+</body>
+</html>
